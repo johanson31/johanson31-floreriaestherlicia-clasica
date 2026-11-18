@@ -7,7 +7,10 @@ declare(strict_types=1);
  * storage/) vive FUERA de la carpeta pública y no se puede pedir por URL.
  */
 
-$raiz = dirname(__DIR__);
+// Dos formas de desplegar, sin editar este archivo:
+//  - el dominio apunta a clasica/public       -> el código está en la carpeta de arriba
+//  - public/ copiado dentro de public_html     -> el código está en ~/clasica (hermana de public_html)
+$raiz = is_dir(dirname(__DIR__) . '/src') ? dirname(__DIR__) : dirname(__DIR__) . '/clasica';
 
 // Autocarga mínima sin Composer: Floreria\X\Y -> src/X/Y.php
 spl_autoload_register(static function (string $clase) use ($raiz): void {
