@@ -1,0 +1,29 @@
+{
+    "name": "swsperu/floreriaestherlicia-clasica",
+    "description": "Web clásica de Florería Estherlicia: el diseño de siempre, leyendo el catálogo de la API de Laravel.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": { "Floreria\\": "src/" },
+        "files": ["src/funciones.php"]
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "serve": "php -S 127.0.0.1:8090 -t public dev-router.php"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

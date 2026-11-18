@@ -1,0 +1,245 @@
+@charset "utf-8";
+/*
+ * Estilos de la web clásica de Florería Estherlicia.
+ * Portados de css/estilos.css original (mismas medidas, colores e imágenes);
+ * las tablas de maquetación pasaron a bloques, sin cambiar el aspecto.
+ */
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: content-box; }
+html { background: #4d7f4c; }
+body {
+  margin: 0;
+  color: #003366;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: justify;
+  background: #4d7f4c;
+  min-width: 880px;
+}
+a { text-decoration: none; color: #06f; }
+a:hover { text-decoration: underline; color: #c00; }
+img { border: 0; vertical-align: middle; }
+p { margin: 0; padding-bottom: 10px; text-align: justify; }
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+input, textarea {
+  font: inherit;
+  font-weight: normal;
+  border: 1px solid #b8b9b9;
+  background-color: #ecf6ff;
+  padding: 4px;
+}
+select { margin-top: 4px; font-size: 14px; }
+.oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.centro { text-align: center; }
+.borde { border: 1px solid #999; }
+.color-rojo { color: #c00; }
+.texto12 { font-size: 12px; }
+.normal { font-weight: normal; }
+
+/* ---------- Estructura (860 px, centrada, como la original) ---------- */
+#todo_bg {
+  width: 860px;
+  margin: 16px auto 40px;
+  border-top: 1px solid #b5b5b5;
+  position: relative;
+}
+#header {
+  position: relative;
+  height: 200px;
+  width: 858px;
+  background: #0231c0 url("../img/base/header.jpg") no-repeat left top;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+}
+.nav-top {
+  position: absolute;
+  right: 28px;
+  top: 52px;
+  color: #fff;
+  font-size: 15px;
+  word-spacing: 6px;
+}
+.nav-top a { color: #fff; word-spacing: normal; }
+.nav-top a:hover { color: #fc0; text-decoration: none; }
+
+#contenido {
+  width: 858px;
+  background: #fff;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  overflow: hidden; /* contiene los floats */
+  text-align: left;
+}
+.contenido-der { float: right; width: 650px; }
+.contenido-izq { float: left; width: 200px; color: #c00; padding-bottom: 20px; }
+
+#foot {
+  width: 860px;
+  height: 82px;
+  position: relative;
+  background: url("../img/base/footer.png") no-repeat;
+  font-size: 11px;
+}
+#foot .credito { position: absolute; right: 14px; bottom: 6px; color: #999; font-size: 10px; }
+.link_webstardata { font-size: 10px; color: #999; font-family: Verdana, Geneva, sans-serif; }
+.link_webstardata:hover { color: #fc0; }
+
+/* ---------- Rotador de banners (reemplaza jquery.cross-slide) ---------- */
+.rotador {
+  position: relative;
+  width: 642px;
+  height: 204px;
+  margin-top: 6px;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+.rotador img {
+  position: absolute;
+  inset: 0;
+  width: 642px;
+  height: 204px;
+  object-fit: cover;
+  object-position: 50% 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.rotador img.activo { opacity: 1; animation: paneo 6s linear forwards; }
+.rotador img.activo.arriba { animation-name: paneo-arriba; }
+@keyframes paneo { from { object-position: 50% 0; } to { object-position: 50% 100%; } }
+@keyframes paneo-arriba { from { object-position: 50% 100%; } to { object-position: 50% 0; } }
+
+/* ---------- Menú lateral ---------- */
+.fondo-cate-top2 { height: 5px; }
+.fnd-cates { background: url("../img/base/fnd-cates.jpg") repeat-y; }
+.boton-pr {
+  display: block;
+  color: #036;
+  font-size: 12px;
+  padding: 4px 6px;
+  background: #fc0;
+  margin: 2px 3px;
+}
+.boton-pr:hover { color: #03f; text-decoration: none; background: #fc6; }
+.select-tipo {
+  display: block;
+  padding: 0 6px 4px;
+  background: #fc0;
+  margin: 2px 3px;
+  font-size: 12px;
+}
+.select-lado { width: 134px; }
+.select-tipo-txt { width: 100%; background: #fc0; border: 0; color: #036; font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
+.td-categorias {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+  background: url("../img/base/fnd-1.jpg") no-repeat;
+  margin-top: 2px;
+}
+.fondo-cate-top { background: url("../img/base/fondo-cate-top.png") no-repeat; height: 10px; margin-top: 4px; }
+.fondo-cate-middle { background: url("../img/base/fondo-cate-middle.png") repeat-y; padding: 0 4px; }
+.fondo-cate-bottom { background: url("../img/base/fondo-cate-bottom.png") no-repeat; height: 8px; }
+.color-rojo2 {
+  display: block;
+  width: 186px;
+  color: #c00;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid #c00;
+  padding: 10px 0 3px;
+  margin: 0 0 2px 2px;
+}
+.boton {
+  display: block;
+  color: #036;
+  font-size: 15px;
+  padding: 6px 0 6px 28px;
+  background: url("../img/base/ico-categoria.png") no-repeat;
+}
+.boton:hover { color: #03f; text-decoration: none; }
+
+.buscar { padding: 12px 2px 6px; text-align: center; }
+.select-buscar { width: 68px; }
+.input-buscar { width: 54px; vertical-align: middle; }
+.btn-buscar { border: 0; background: #fc0; margin: 0; padding: 0; cursor: pointer; vertical-align: middle; }
+.ejemplo { padding-top: 6px; font-size: 16px; color: #036; }
+
+/* ---------- Contenido ---------- */
+.titulo-base {
+  color: #c00;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 26px;
+  margin: 0;
+  padding: 14px 0 10px 10px;
+}
+.datos { margin: 6px 14px 0; }
+.texto-pre { display: block; font-size: 15px; font-weight: bold; margin-top: 6px; }
+.text-centro-abajo, .frase-centro { font-size: 16px; font-weight: bold; text-align: center; padding: 10px 0; }
+.frase-centro { font-weight: normal; font-size: 14px; }
+.lista-check { line-height: 20px; padding-left: 16px; list-style-type: disc; text-align: left; }
+.lista-no-check { line-height: 20px; list-style-type: none; text-align: left; font-weight: bold; color: #333; padding: 0; margin: 10px 0 0; }
+.sin-resultados { text-align: center; padding: 30px 0; font-size: 14px; }
+.link_regresar { float: right; font-size: 12px; color: #000; font-family: Verdana, Geneva, sans-serif; margin-right: 20px; }
+
+/* Portada: 8 categorías en 2 filas */
+.portada-categorias { display: grid; grid-template-columns: repeat(4, 142px); gap: 16px; justify-content: center; margin: 20px 0; }
+.box-prod { border: 1px solid #ccc; display: block; }
+.box-prod:hover { border-color: #900; }
+
+/* Listado: 4 columnas de 160 px, como la tabla original */
+.grilla { display: grid; grid-template-columns: repeat(4, 155px); justify-content: center; row-gap: 16px; margin-top: 10px; }
+.producto { width: 140px; margin: 0 auto; padding: 4px 0 10px; text-align: center; font-size: 12px; line-height: 14px; }
+.producto:hover { background: #eee; }
+.producto .desc { display: block; min-height: 28px; }
+.producto .precio { display: block; font-weight: bold; margin-top: 12px; }
+.producto .seleccionar { display: block; font-weight: bold; }
+
+.paginador { text-align: center; padding: 10px 0 20px; font-size: 12px; }
+.paginator-a { display: inline-block; width: 30px; height: 30px; line-height: 30px; background: url("../img/paginator-a.png") no-repeat; }
+.paginator-hover { display: inline-block; width: 30px; height: 30px; line-height: 30px; background: url("../img/paginator-hover.png") no-repeat; color: #f00; font-weight: bold; font-size: 16px; }
+
+/* Datos de contacto, tarjetas */
+.datos-contacto { text-align: center; font-weight: bold; padding-top: 10px; }
+.datos-contacto p { text-align: center; }
+.tarjetas img { margin: 0 4px; }
+.ico-tel { vertical-align: text-bottom; }
+
+/* ---------- Formularios (pedido / contacto) ---------- */
+.titulo-tabla { display: block; width: 100%; color: #fff; background: #0231c0; padding: 6px 4px; font-weight: bold; margin: 8px 0; }
+.form-pedido label, .form-contacto label { display: grid; grid-template-columns: 140px 10px 1fr; align-items: center; margin: 6px 0; font-size: 15px; }
+.form-pedido label > span, .form-contacto label > span { text-align: center; }
+.form-pedido input, .form-pedido textarea, .form-contacto input, .form-contacto textarea { width: 180px; }
+.form-pedido label.ancho input, .form-pedido label.ancho textarea,
+.form-contacto label.ancho input, .form-contacto label.ancho textarea { width: 370px; }
+.form-contacto label { grid-template-columns: 130px 10px 380px 20px; }
+.form-pedido small { grid-column: 3; font-size: 14px; }
+.pedido-cols { display: grid; grid-template-columns: 350px 196px; gap: 10px; }
+.col-producto { text-align: center; font-size: 12px; }
+.col-producto img { margin: 4px auto; display: block; }
+.aviso { text-align: right; font-weight: bold; font-size: 15px; padding-right: 30px; }
+.btn-img { border: 0; padding: 0; margin: 0 8px; background: none; cursor: pointer; }
+.btn-img:disabled { opacity: .5; cursor: wait; }
+.texto-estado { font-size: 15px; }
+.texto-estado.error { color: #c00; font-weight: bold; }
+input:user-invalid, textarea:user-invalid { border-color: #c00; background: #fff0f0; }
+.btn-whatsapp { display: inline-block; background: #25d366; color: #fff; font-weight: bold; padding: 10px 18px; border-radius: 4px; }
+.btn-whatsapp:hover { color: #fff; background: #1ebe5b; text-decoration: none; }
+
+/* ---------- Visor de imágenes (reemplaza highslide) ---------- */
+.visor { position: fixed; inset: 0; background: rgba(0, 0, 0, .75); display: flex; align-items: center; justify-content: center; z-index: 50; cursor: zoom-out; }
+.visor figure { margin: 0; background: #fff; padding: 10px; text-align: center; }
+.visor img { max-width: 80vw; max-height: 80vh; display: block; }
+.visor figcaption { padding-top: 6px; font-size: 13px; }
+
+/* ---------- Margaritas que caen ---------- */
+.margarita { position: absolute; top: 0; left: 0; width: 30px; height: 31px; pointer-events: none; z-index: 40; }
+@media (prefers-reduced-motion: reduce) {
+  .margarita { display: none; }
+  .rotador img.activo { animation: none; }
+}

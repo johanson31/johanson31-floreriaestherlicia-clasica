@@ -1,0 +1,32 @@
+# Web clásica de Florería Estherlicia (Apache / cPanel)
+Options -Indexes -MultiViews
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Archivos ocultos (.git, .env, ...) nunca se sirven
+    RewriteRule (^|/)\. - [F,L]
+
+    # El único PHP ejecutable es index.php: cualquier otro .php (p. ej. restos de
+    # la web antigua o un archivo subido por un atacante) pasa al router y da 404/301.
+    RewriteCond %{REQUEST_URI} !^/index\.php$
+    RewriteRule \.php$ index.php [L]
+
+    # Todo lo que no sea un archivo existente va al router
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header unset X-Powered-By
+</IfModule>
