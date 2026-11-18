@@ -238,7 +238,8 @@ input:user-invalid, textarea:user-invalid { border-color: #c00; background: #fff
 .visor figcaption { padding-top: 6px; font-size: 13px; }
 
 /* ---------- Margaritas que caen ---------- */
-.margarita { position: absolute; top: 0; left: 0; width: 30px; height: 31px; pointer-events: none; z-index: 40; }
+/* fixed: caen sobre la ventana sin agrandar la página (sin barra horizontal) */
+.margarita { position: fixed; top: 0; left: 0; width: 30px; height: 31px; pointer-events: none; z-index: 40; }
 @media (prefers-reduced-motion: reduce) {
   .margarita { display: none; }
   .rotador img.activo { animation: none; }

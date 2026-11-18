@@ -15,8 +15,8 @@ use Floreria\Web\Menu;
 <title><?= $titulo ? e($titulo) . ' :: ' : '' ?>Florería Estherlicia</title>
 <meta name="description" content="Florería Estherlicia: arreglos florales para toda ocasión. Delivery a todo Lima y provincias las 24 horas.">
 <link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=1">
-<script src="/assets/js/sitio.js?v=1" defer></script>
+<link rel="stylesheet" href="/assets/css/estilos.css?v=2">
+<script src="/assets/js/sitio.js?v=2" defer></script>
 </head>
 <body data-api="<?= e($apiUrl) ?>" data-whatsapp="<?= e($whatsapp) ?>">
 <div id="todo_bg">

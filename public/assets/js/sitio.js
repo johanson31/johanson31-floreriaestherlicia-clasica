@@ -78,7 +78,7 @@
         fl.x += Math.cos(fl.c) * 1.2;
         fl.c += fl.paso;
         if (fl.y > innerHeight) { fl.y = -60; fl.x = Math.random() * (innerWidth - 70); }
-        fl.el.style.transform = 'translate(' + Math.min(innerWidth - 40, fl.x) + 'px,' + (fl.y + scrollY) + 'px)';
+        fl.el.style.transform = 'translate(' + Math.max(0, Math.min(innerWidth - 50, fl.x)) + 'px,' + fl.y + 'px)';
       });
       requestAnimationFrame(caer);
     })();
