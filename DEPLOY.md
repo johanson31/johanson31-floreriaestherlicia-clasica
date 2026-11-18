@@ -43,7 +43,7 @@ curl -s https://admin.floreriaestherlicia.com/api/catalogo/categorias | head -c 
 
 ## 3. Catálogo antiguo completo (una sola vez)
 
-Subir `floreria-laravel-catalogo.zip` a `~/web` y extraerlo (reemplaza 3 archivos y agrega 2). Luego:
+Subir `floreria-laravel-catalogo.zip` a `~/web` y extraerlo (reemplaza 2 archivos y agrega 2). Luego:
 
 ```bash
 cd ~/web
@@ -54,7 +54,7 @@ php artisan optimize:clear && php artisan optimize
 
 ## 4. Web clásica
 
-Subir `floreriaestherlicia-clasica.zip` a `~` y extraerlo en `~/clasica`. Luego:
+Subir `floreriaestherlicia-clasica.zip` a `~` (la carpeta personal) y extraerlo ahí: crea `~/clasica`. Luego:
 
 ```bash
 cd ~/clasica
