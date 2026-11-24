@@ -11,11 +11,11 @@ use Floreria\Web\Menu;
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=880">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= $titulo ? e($titulo) . ' :: ' : '' ?>Florería Estherlicia</title>
 <meta name="description" content="Florería Estherlicia: arreglos florales para toda ocasión. Delivery a todo Lima y provincias las 24 horas.">
 <link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=2">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=3">
 <script src="/assets/js/sitio.js?v=2" defer></script>
 </head>
 <body data-api="<?= e($apiUrl) ?>" data-whatsapp="<?= e($whatsapp) ?>">
@@ -23,7 +23,7 @@ use Floreria\Web\Menu;
 
   <header id="header">
     <nav class="nav-top" aria-label="Principal">
-      <a href="/">Inicio</a> | <a href="/nuestra-empresa">Nuestra Empresa</a> | <a href="/contactenos">Contáctenos</a>
+      <a href="/">Inicio</a> | <a href="/nuestra-empresa">Nuestra Empresa</a> | <a href="/contactenos">Contáctenos</a><span class="solo-movil"> | <a href="#categorias">Categorías</a></span>
     </nav>
   </header>
 
@@ -37,7 +37,7 @@ use Floreria\Web\Menu;
       <?= $contenido ?>
     </main>
 
-    <aside class="contenido-izq">
+    <aside class="contenido-izq" id="categorias">
       <div class="fondo-cate-top2"></div>
       <div class="fnd-cates">
         <a href="/ofertas" class="boton-pr">OFERTAS</a>

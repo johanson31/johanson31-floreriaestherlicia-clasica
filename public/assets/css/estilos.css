@@ -237,6 +237,81 @@ input:user-invalid, textarea:user-invalid { border-color: #c00; background: #fff
 .visor img { max-width: 80vw; max-height: 80vh; display: block; }
 .visor figcaption { padding-top: 6px; font-size: 13px; }
 
+.solo-movil { display: none; }
+
+/* ---------- Celular y tablet (menos de 880 px) ----------
+ * El diseño de escritorio no cambia: todo lo de abajo solo aplica en pantallas angostas.
+ * El contenido va primero y el menú después (ya es su orden en el HTML), así el cliente
+ * ve los productos sin bajar por 30 categorías; "Categorías" en la barra lleva al menú.
+ */
+@media (max-width: 879px) {
+  *, *::before, *::after { box-sizing: border-box; }
+  body { min-width: 0; text-align: left; }
+  p { text-align: left; }
+  .solo-movil { display: inline; }
+
+  #todo_bg, #header, #contenido, #foot { width: auto; }
+  #todo_bg { margin: 0; border-top: 0; }
+
+  /* header.jpg mide 858x174: se escala completo y la barra azul queda debajo */
+  #header { height: auto; border: 0; background-size: 100% auto; padding-top: calc(100% * 174 / 858); }
+  .nav-top { position: static; text-align: center; padding: 8px 4px; word-spacing: 2px; font-size: 14px; line-height: 22px; }
+
+  #contenido { border: 0; overflow: visible; }
+  .contenido-der, .contenido-izq { float: none; width: auto; }
+  .contenido-der { padding: 6px 6px 0; }
+  .contenido-izq { padding: 10px 6px 20px; border-top: 4px solid #0231c0; }
+
+  .rotador, .rotador img { width: 100%; height: auto; }
+  .rotador { aspect-ratio: 642 / 204; margin-top: 0; }
+  .rotador img { height: 100%; }
+
+  .titulo-base { font-size: 20px; line-height: 24px; padding: 12px 0 8px 4px; }
+  .datos { margin: 6px 4px 0; }
+  .link_regresar { margin: 4px 0 0 8px; }
+
+  .portada-categorias { grid-template-columns: repeat(2, 142px); gap: 12px; }
+  .grilla { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 6px; }
+  .producto { width: auto; max-width: 170px; }
+  .producto img { width: 120px; height: auto; }
+  .paginador { line-height: 36px; }
+
+  /* Menú: mismos colores que las imágenes de fondo, en cajas que ocupan el ancho */
+  .fnd-cates { background: none; }
+  .boton-pr { font-size: 14px; padding: 10px 8px; }
+  .select-tipo { padding: 4px 8px 8px; }
+  .select-lado, .select-tipo-txt { width: 100%; font-size: 15px; padding: 6px 0; }
+  .td-categorias { background: #9d0102; border-radius: 4px; }
+  .fondo-cate-top, .fondo-cate-bottom { display: none; }
+  .fondo-cate-middle { background: #fc0; border-radius: 8px; margin-top: 8px; padding: 0 8px 8px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; }
+  .fondo-cate-middle > .color-rojo2, .fondo-cate-middle > form { grid-column: 1 / -1; }
+  .color-rojo2 { width: auto; }
+  .boton { font-size: 14px; padding: 8px 0 8px 26px; background-position: 0 50%; }
+  .input-buscar { width: 90px; font-size: 16px; }
+  .select-buscar { width: 80px; font-size: 16px; }
+
+  /* Formularios en una columna; 16 px evita el zoom automático del iPhone al escribir */
+  .form-pedido label, .form-contacto label { grid-template-columns: 1fr; margin: 8px 0; }
+  .form-pedido label > span, .form-contacto label > span { display: none; }
+  .form-pedido input, .form-pedido textarea, .form-contacto input, .form-contacto textarea,
+  .form-pedido label.ancho input, .form-pedido label.ancho textarea,
+  .form-contacto label.ancho input, .form-contacto label.ancho textarea { width: 100%; font-size: 16px; padding: 8px; }
+  .form-pedido small { grid-column: auto; font-size: 13px; }
+  .pedido-cols { grid-template-columns: 1fr; }
+  .col-producto { order: -1; }
+  .titulo-tabla { padding: 8px; }
+  .aviso { text-align: center; padding-right: 0; }
+
+  .tarjetas img { margin: 4px; max-width: 100%; height: auto; }
+  .datos-contacto { font-size: 13px; }
+
+  /* footer.png mide 860x82: se escala y el crédito pasa debajo */
+  #foot { height: auto; padding-top: calc(100% * 82 / 860); background-size: 100% auto; }
+  #foot .credito { position: static; display: block; text-align: center; padding: 6px; background: #4d7f4c; color: #ddd; }
+
+  .margarita { width: 22px; height: 23px; }
+}
+
 /* ---------- Margaritas que caen ---------- */
 /* fixed: caen sobre la ventana sin agrandar la página (sin barra horizontal) */
 .margarita { position: fixed; top: 0; left: 0; width: 30px; height: 31px; pointer-events: none; z-index: 40; }
